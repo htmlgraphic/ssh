@@ -11,11 +11,6 @@ RUN apt-get update && apt-get -yq install \
 		vim \
 		curl \
 		iputils-ping \
-		php7.0 \
-		php7.0-json \
-		php7.0-mcrypt \
-		php7.0-mbstring \
-		php7.0-xml \
 		openssh-server \
 		git && rm -rf /var/lib/apt/lists/*
 
@@ -24,12 +19,8 @@ RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSep
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
 
-# APACHE
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-
 # Environment variables contained within build container.
-ENV PATH="~/.composer/vendor/bin:$PATH" \
-	AUTHORIZED_KEYS=$AUTHORIZED_KEYS
+ENV AUTHORIZED_KEYS=$AUTHORIZED_KEYS
 
 EXPOSE 22
 CMD ["/run.sh"]
