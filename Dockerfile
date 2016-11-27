@@ -11,6 +11,10 @@ RUN apt-get update && apt-get -yq install \
 		curl \
 		iputils-ping \
 		php7.0 \
+		php7.0-json \
+		php7.0-mcrypt \
+		php7.0-mbstring \
+		php7.0-xml \
 		openssh-server \
 		git && rm -rf /var/lib/apt/lists/*
 
