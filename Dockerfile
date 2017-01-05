@@ -1,4 +1,4 @@
-FROM htmlgraphic/base:16.04
+FROM ubuntu:16.04
 MAINTAINER Jason Gegere <jason@htmlgraphic.com>
 
 # Install packages then remove cache package list information
@@ -10,7 +10,10 @@ RUN apt-get update && apt-get -yq install \
 		unzip \
 		vim \
 		curl \
+		mailutils \
+		language-pack-en \
 		iputils-ping \
+		openssh-client \
 		openssh-server \
 		git && rm -rf /var/lib/apt/lists/*
 
