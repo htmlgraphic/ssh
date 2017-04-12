@@ -7,6 +7,7 @@ RUN apt-get update && apt-get -yq install \
 		sudo \
 		wget \
 		zip \
+		make \
 		unzip \
 		vim \
 		curl \
